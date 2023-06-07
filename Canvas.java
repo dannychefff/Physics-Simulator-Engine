@@ -22,13 +22,16 @@ public class Canvas extends JPanel {
 
 
 
-//    Updates everything on screen
+    //    Updates everything on screen
     public void update() {
         p.move();
     }
 
-//    Renders everything on screen
+    //    Renders everything on screen
     public void draw(Graphics2D g2d) {
         p.draw(g2d);
     }
 }
+
+//THis is a new commit
+//Fifth (of vodka)
