@@ -25,7 +25,7 @@ public class Canvas extends JPanel {
     //    Updates everything on screen
     public void update() {
         p.move();
-//        Hello
+//        Hello hi
     }
 
     //    Renders everything on screen
