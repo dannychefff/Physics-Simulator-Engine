@@ -12,6 +12,8 @@ public class Vector {
 
 
 
+
+//    Access methods
     public double getX() {
         return x;
     }
