@@ -6,16 +6,16 @@ import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 
 public class Canvas extends JPanel {
-    NodeArray particles;
+    Node particles;
     int width, height;
 
     public Canvas() {
-        particles = new NodeArray(2);
+        particles = new Node();
         width = 1000;
         height = 1000;
 
 //        Test code
-        particles.get(0).add(new Node(null, new Particle(100, 100, 100, new Vector(10, 0))));
+        particles.add(new Node(null, new Particle(100, 100, 100, new Vector(10, 0))));
     }
 
 
@@ -31,12 +31,10 @@ public class Canvas extends JPanel {
     //    Updates everything on screen
     public void update() {
 //        Section off particles
-        for (int i = 0; i < particles.getLength(); i++) {
-            Node curr = particles.get(i);
-            while (curr.getNext() != null) {
-                curr.getNext().getParticle().move(); //Move all particles
-                curr = curr.getNext(); //Move to next node
-            }
+        Node curr = particles;
+        while (curr.getNext() != null) {
+            curr.getNext().getParticle().move(); //Move all particles
+            curr = curr.getNext(); //Move to next node
         }
     }
 
@@ -44,12 +42,10 @@ public class Canvas extends JPanel {
     //    Renders everything on screen
     public void draw(Graphics2D g2d) {
 //        Loop through all particles and draw them
-        for (int i = 0; i < particles.getLength(); i++) {
-            Node curr = particles.get(i); //Get the current node
-            while (curr.getNext() != null) {
-                curr.getNext().getParticle().draw(g2d);
-                curr = curr.getNext(); //Move to next node
-            }
+        Node curr = particles; //Get the current node
+        while (curr.getNext() != null) {
+            curr.getNext().getParticle().draw(g2d);
+            curr = curr.getNext(); //Move to next node
         }
     }
 }
