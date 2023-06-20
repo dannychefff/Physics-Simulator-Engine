@@ -7,6 +7,9 @@ public class Node {
         this.particle = c;
     }
 
+//    Default constructor
+    public Node() {}
+
 
 
 //    Access methods
@@ -34,7 +37,10 @@ public class Node {
 
 //    Removes the node in front of this one
     public void remove() {
-        if (next == null) { return; } //Null pointer check
+        if (next == null) {
+            System.out.println("Tried to remove a nonexistent node");
+            return;
+        } //Null pointer check
 
         next = next.next;
     }

@@ -9,11 +9,11 @@ public class Particle {
     Ellipse2D.Double body;
 
     public Particle(int x, int y, int r, Vector v) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
+        this.x = x - radius;
+        this.y = y - radius;
+        this.radius = r;
         this.velocity = v;
-        body = new Ellipse2D.Double(x, y, r, r);
+        body = new Ellipse2D.Double(x, y, r*2.0, r*2.0);
     }
 
 
@@ -59,7 +59,7 @@ public class Particle {
         y += velocity.getY();
 
 //        Update actual shape's position
-        body.x = x;
-        body.y = y;
+        body.x = x - radius;
+        body.y = y - radius;
     }
 }
